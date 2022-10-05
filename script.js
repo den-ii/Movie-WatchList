@@ -94,13 +94,13 @@ async function fetchData(value) {
     movieArr = []
     main.innerHTML = ''
 
-    const res = await fetch(`http://www.omdbapi.com/?s=${value}&apikey=8e78e2ac`)
+    const res = await fetch(`https://www.omdbapi.com/?s=${value}&apikey=8e78e2ac`)
     const uData = await res.json()
     console.log(uData.Response)
     if (uData.Response === 'True') {
         for (let data of uData.Search) {
             // console.log(data)
-            const res1 = await fetch(`http://www.omdbapi.com/?i=${data.imdbID}&apikey=8e78e2ac`)
+            const res1 = await fetch(`https://www.omdbapi.com/?i=${data.imdbID}&apikey=8e78e2ac`)
             const finData = await res1.json()
             // console.log(finData)
             //if (fin)
