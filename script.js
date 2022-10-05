@@ -1,4 +1,4 @@
-import {story, mediaQuery, renderMovies, renderWatchlist} from './util.js'
+import { story, mediaQuery, renderMovies, renderWatchlist } from './util.js'
 let movieArr = []
 let watchlistStore = []
 let watchlistLocalStore = JSON.parse(localStorage.getItem("watchlistStore"))
@@ -12,49 +12,51 @@ const wmain = document.getElementById('wmain')
 //rendering Watchlist
 
 if (watchlistLocalStore) {
-    watchlistStore = watchlistLocalStore
-    if (wmain) {
-        if (watchlistStore) {
-            renderWatchlist(watchlistStore)
-        }
-        const readMore = document.querySelectorAll('.readmore')
-        const movies = document.querySelectorAll('.movie-container')
+        watchlistStore = watchlistLocalStore
+        
+    }
+
+if (wmain) {
+    if (watchlistLocalStore) {
+        renderWatchlist(watchlistStore)
+    }
+    else {
+        wmain.innerHTML = `
+            <div class="empty">
+                <div>
+                    <h2>Your watchlist is looking pretty empty<h2>
+                </div>
+                <p class="addmovies">
+                    <a href="./index.html">
+                        <img src="./assets/watchlist.png" />  Let's add some movies
+                    </a>
+                </p>
+            </div>`
+    }
+    const readMore = document.querySelectorAll('.readmore')
+    const movies = document.querySelectorAll('.movie-container')
 
 
-        for (let i = 0; i < readMore.length; i++) {
-            readMore[i].addEventListener('click', () => {
-                if (readMore[i].classList.contains('seeless')) {
-                    readMore[i].classList.remove('seeless')
-                    readMore[i].textContent = 'Read More'
+    for (let i = 0; i < readMore.length; i++) {
+        readMore[i].addEventListener('click', () => {
+            if (readMore[i].classList.contains('seeless')) {
+                readMore[i].classList.remove('seeless')
+                readMore[i].textContent = 'Read More'
 
-                }
-                else {
-                    readMore[i].classList.add('seeless')
-                    readMore[i].textContent = 'See Less'
+            }
+            else {
+                readMore[i].classList.add('seeless')
+                readMore[i].textContent = 'See Less'
 
-                }
-                movies[i].classList.toggle('active')
-            })
-
-        }
-
+            }
+            movies[i].classList.toggle('active')
+        })
 
     }
 
+
 }
-else {
-    wmain.innerHTML = `
-    <div class="empty">
-        <div>
-            <h2>Your watchlist is looking pretty empty<h2>
-        </div>
-        <p class="addmovies">
-            <a href="./index.html">
-                <img src="./assets/watchlist.png" />  Let's add some movies
-            </a>
-        </p>
-    </div>`
-}
+
 //Remove Button Error at this point
 const remove = document.querySelectorAll('.remove')
 for (let i = 0; i < remove.length; i++) {
@@ -65,8 +67,7 @@ for (let i = 0; i < remove.length; i++) {
         if (index > -1) {
             watchlistStore.splice(index, 1)
         }
-        
-        localStorage.clear()
+
         localStorage.setItem('watchlistStore', JSON.stringify(watchlistStore))
         watchlistLocalStore = JSON.parse(localStorage.getItem('watchlistStore'))
         console.log(watchlistStore)
@@ -133,8 +134,8 @@ async function fetchData(value) {
         for (let i = 0; i < watchlistBut.length; i++) {
             watchlistBut[i].addEventListener('click', () => {
                 watchlistStore.unshift(movieArr[i]);
-                // console.log(watchlistStore)
                 localStorage.setItem('watchlistStore', JSON.stringify(watchlistStore))
+                console.log(watchlistLocalStore)
 
 
             })
