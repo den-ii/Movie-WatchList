@@ -133,9 +133,10 @@ async function fetchData(value) {
         }
         for (let i = 0; i < watchlistBut.length; i++) {
             watchlistBut[i].addEventListener('click', () => {
+                watchlistBut[i].innerHTML = 'saved'
                 watchlistStore.unshift(movieArr[i]);
                 localStorage.setItem('watchlistStore', JSON.stringify(watchlistStore))
-                console.log(watchlistLocalStore)
+                
 
 
             })
