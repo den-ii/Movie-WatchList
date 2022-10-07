@@ -12,8 +12,7 @@ const wmain = document.getElementById('wmain')
 //rendering Watchlist
 
 if (watchlistLocalStore) {
-        watchlistStore = watchlistLocalStore
-        
+        watchlistStore = watchlistLocalStore        
     }
 
 if (wmain) {
@@ -57,22 +56,14 @@ if (wmain) {
 
 }
 let index = 0
-//Remove Button Error at this point
+//Remove Button and watchlist onclick
 let remove = document.querySelectorAll('.remove')
 for (let i = 0; i < remove.length; i++) {
     remove[i].addEventListener('click', () => {
-        // renderWatchlist(watchlistStore)
-        
-        console.log('remove clicked')
-        // renderWatchlist(watchlistStore)
-        
         console.log(watchlistStore[i])
         index = (watchlistStore.indexOf(watchlistStore[i]))
         if (index > -1)
-        console.log(index)
-        console.log(watchlistStore)
         watchlistStore.splice(i, 1)
-        console.log(watchlistStore)
         localStorage.setItem('watchlistStore', JSON.stringify(watchlistStore))
         watchlistLocalStore = JSON.parse(localStorage.getItem('watchlistStore'))
         window.location.reload()
@@ -151,6 +142,3 @@ async function fetchData(value) {
         </div>`
     }
 }
-
-
-
