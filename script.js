@@ -17,7 +17,7 @@ if (watchlistLocalStore) {
     }
 
 if (wmain) {
-    if (watchlistLocalStore) {
+    if (watchlistStore.length > 0) {
         renderWatchlist(watchlistStore)
     }
     else {
@@ -56,21 +56,26 @@ if (wmain) {
 
 
 }
-
+let index = 0
 //Remove Button Error at this point
-const remove = document.querySelectorAll('.remove')
+let remove = document.querySelectorAll('.remove')
 for (let i = 0; i < remove.length; i++) {
     remove[i].addEventListener('click', () => {
         // renderWatchlist(watchlistStore)
+        
         console.log('remove clicked')
-        const index = watchlistStore.length - 1
-        if (index > -1) {
-            watchlistStore.splice(index, 1)
-        }
-
+        // renderWatchlist(watchlistStore)
+        
+        console.log(watchlistStore[i])
+        index = (watchlistStore.indexOf(watchlistStore[i]))
+        if (index > -1)
+        console.log(index)
+        console.log(watchlistStore)
+        watchlistStore.splice(i, 1)
+        console.log(watchlistStore)
         localStorage.setItem('watchlistStore', JSON.stringify(watchlistStore))
         watchlistLocalStore = JSON.parse(localStorage.getItem('watchlistStore'))
-        console.log(watchlistStore)
+        window.location.reload()
         renderWatchlist(watchlistStore)
     })
 }
@@ -99,11 +104,8 @@ async function fetchData(value) {
     console.log(uData.Response)
     if (uData.Response === 'True') {
         for (let data of uData.Search) {
-            // console.log(data)
             const res1 = await fetch(`https://www.omdbapi.com/?i=${data.imdbID}&apikey=8e78e2ac`)
             const finData = await res1.json()
-            // console.log(finData)
-            //if (fin)
             movieArr.push(finData)
 
         }

@@ -120,6 +120,7 @@ main {
 .remove {
     background-color: #fff;
     border: none;
+    font-weight: 600;
 }
 
 .title {
@@ -222,7 +223,6 @@ p.addmovies{
     color: #1A1919;
     text-decoration: none;
 }
-
 @media screen and (max-width: 400px) {
     .movie-style {
         margin: 1em 0;
