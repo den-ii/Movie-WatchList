@@ -1,6 +1,7 @@
 # Movie-WatchList
 
 ## Scrimba-Solo-Project
+![watchlist](https://user-images.githubusercontent.com/104834114/207574978-73ddf439-c31e-4e97-8fa8-fe24f40f850b.jpg)
 
 ## How-It-Works
 
@@ -9,4 +10,4 @@
 3. Add it to your watchlist
 4. View watchlist
 
-![watchlist](https://user-images.githubusercontent.com/104834114/207574978-73ddf439-c31e-4e97-8fa8-fe24f40f850b.jpg)
+
