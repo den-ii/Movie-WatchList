@@ -85,7 +85,7 @@ if (myForm) {
 
     })
 }
-
+//fetch and render movies
 async function fetchData(value) {
     movieArr = []
     main.innerHTML = ''
