@@ -22,5 +22,9 @@ This Project uses Javascript and Omdb API. It wasn’t that easy building this p
 I wondered how I could save the movies long term so I used localStorage but I’m going to use a database with authentication to make it available for the user on different devices.
 I had a major challenge when removing a movie from the array, It did remove but it wasn’t rendering on the page.  I then solved it by refreshing the page to  render the modified array . This is one of the reasons React was formed
 
-
+## Links
+[Slides](https://docs.google.com/presentation/d/1vJC_jZMAByniRo6f_mXXhljSDScCEBnfTWen8q4lceI/edit#slide=id.g22885916e73_1_135)
+[Doc 1](https://docs.google.com/document/d/1JxqXThmW4Yd7_0kq3Noe0XmJtWsHy-SzwJVdbe5Ld7o/edit)
+[Doc 2 - MVP Specification](https://docs.google.com/document/d/1-DY72ciNyKT1XLIXzy-sqgM2u1QPyjdemIukfYh2ux8/edit)
+[Doc 3 - Progress](https://docs.google.com/document/d/1KK_g9C-Gz1IFxasaGnGLPpVi8q_v4ln8enZ1OWC6MCQ/edit)
 
