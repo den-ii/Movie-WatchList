@@ -91,8 +91,8 @@ async function fetchData(value) {
     main.innerHTML = ''
 
     const res = await fetch(`https://www.omdbapi.com/?s=${value}&apikey=8e78e2ac`)
-    console.log('res',res)
     const uData = await res.json()
+    console.log('res',uData)
     console.log(uData.Response)
     if (uData.Response === 'True') {
         for (let data of uData.Search) {
