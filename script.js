@@ -98,6 +98,7 @@ async function fetchData(value) {
         for (let data of uData.Search) {
             const res1 = await fetch(`https://www.omdbapi.com/?i=${data.imdbID}&apikey=8e78e2ac`)
             const finData = await res1.json()
+             console.log('finData', finData)
             movieArr.push(finData)
 
         }
